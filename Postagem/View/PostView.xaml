@@ -5,8 +5,20 @@
              Title="PostView">
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+                Text="{Binding Titulo}"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+        <Entry
+                Text="Titulo"
+                Placeholder="Titulo"
+                HeightRequest="90"
+                />
+        <Entry
+                Text="Texto"
+                Placeholder="..."
+                />
+        <Button
+                Text="Enviar"
+                Command="{Binding EnviarCommand}"/>   
     </VerticalStackLayout>
 </ContentPage>

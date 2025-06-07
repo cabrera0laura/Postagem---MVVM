@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Postagem.Models
 {
-    internal class PostModel
+    public class PostModel
     {
+        public int UserId;
+        public int Id;
+        public string Titulo;
+        public string corpo;
+
     }
 }
