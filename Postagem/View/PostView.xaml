@@ -9,16 +9,12 @@
                 VerticalOptions="Center" 
                 HorizontalOptions="Center" />
         <Entry
-                Text="Titulo"
+                Text="{Binding Corpo}"
                 Placeholder="Titulo"
                 HeightRequest="90"
                 />
-        <Entry
-                Text="Texto"
-                Placeholder="..."
-                />
         <Button
                 Text="Enviar"
-                Command="{Binding EnviarCommand}"/>   
+                Command="{Binding DisplayPostsCommand}"/>   
     </VerticalStackLayout>
 </ContentPage>

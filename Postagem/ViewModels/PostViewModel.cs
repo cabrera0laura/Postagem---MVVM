@@ -4,16 +4,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Postagem.ViewModels
 {
-    internal class PostViewModel : ObservableObject
+    public partial class PostViewModel : ObservableObject
     {
-        [ObservableObject]
+        [ObservableProperty]
         private string titulo;
 
-        [ObservableObject]
+        [ObservableProperty]
         private string corpo;
+
+        public ICommand DisplayPostsCommand { get;private set; }
+
+        //Construtor:
+        public PostViewModel() 
+        {
+            DisplayPostsCommand = new Command(DisplayPosts);
+        }
+
+        public void DisplayPosts()
+        {
+            Titulo = Titulo + " Funciona";
+            Corpo = Corpo + "Body";
+        }
 
 
     }
