@@ -15,7 +15,9 @@ namespace Postagem.ViewModels
 
         [ObservableProperty]
         private string corpo;
-
+        // Esses comandos
+        //fornecem o comportamento de comando para elementos de interface
+        //do usuário, como um Windows Runtime XAML Button
         public ICommand DisplayPostsCommand { get;private set; }
 
         //Construtor:
