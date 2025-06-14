@@ -15,6 +15,11 @@
                 />
         <Button
                 Text="Enviar"
-                Command="{Binding DisplayPostsCommand}"/>   
+                Command="{Binding DisplayPostsCommand}"
+                HeightRequest="50"
+                WidthRequest="90"
+                Margin="20"
+                />   
+
     </VerticalStackLayout>
 </ContentPage>
