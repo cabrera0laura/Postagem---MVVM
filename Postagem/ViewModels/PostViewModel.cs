@@ -1,4 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using Postagem.Models;
+using Postagem.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +12,10 @@ namespace Postagem.ViewModels
 {
     public partial class PostViewModel : ObservableObject
     {
+        //importar
+        List<PostModel> postagens;
+
+
         [ObservableProperty]
         private string titulo;
 
@@ -26,12 +32,15 @@ namespace Postagem.ViewModels
             DisplayPostsCommand = new Command(DisplayPosts);
         }
 
-        public void DisplayPosts()
+        public async void DisplayPosts()
         {
-            Titulo = Titulo + " Funciona";
-            Corpo = Corpo + "Body";
+            //sem "S" mas corretamente deveria ser PLURAR
+            PostService postservice = new PostService();
+            //classe para postagens quem ira buscar os dados e utilizara o postservice
+            postagens = await postservice.getPost();
+            //postagens = await postservice.getPost();
+            Titulo = postagens[0].Titulo;
+            Corpo = postagens[0].corpo;
         }
-
-
     }
 }

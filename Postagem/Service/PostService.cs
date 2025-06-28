@@ -10,21 +10,21 @@ namespace Postagem.Service
 {
     internal class PostService
     {
-        string base_url = "https://jsomplaceholder.typicode.com";
-        PostModel postagem;
+        string base_url = "https://jsonplaceholder.typicode.com";
+        List<PostModel> postagens;
         JsonSerializerOptions serializerOptions;
 
-        PostService()
+        public PostService()
         {
             serializerOptions = new JsonSerializerOptions
             {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                PropertyNameCaseInsensitive = true,
                 WriteIndented = true
             };
         }
 
         // PostModel --> pasta Models
-        public async Task<PostModel> getPost()
+        public async Task<List<PostModel>> getPost()
         {
 
             Uri uri = new Uri($"{base_url}/posts");
@@ -33,8 +33,8 @@ namespace Postagem.Service
             //responseMessage -->  retornando a resposta   Async --> n a parametro para retorno
             HttpResponseMessage responseMessage = await client.GetAsync(uri);
             string content = await responseMessage.Content.ReadAsStringAsync();
-            postagem = JsonSerializer.Deserialize<PostModel>(content, serializerOptions);
-            return postagem;
+            postagens = JsonSerializer.Deserialize<List<PostModel>>(content, serializerOptions);
+            return postagens;
 
         }
     }

@@ -8,6 +8,7 @@ namespace Postagem.Models
 {
     public class PostModel
     {
+        //colocar privado e minusculo
         public int UserId;
         public int Id;
         public string Titulo;
